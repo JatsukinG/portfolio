@@ -28,7 +28,7 @@ const sections: Section[] = [
 const MainNavbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  const toogle = () => setIsOpen(!isOpen)
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
       <nav className="sticky top-0 left-0 w-full z-50 backdrop-blur-xl bg-neutral-50/70 dark:bg-neutral-900/70">
@@ -53,7 +53,7 @@ const MainNavbar = () => {
                           'w-full font-semibold text-sm p-4 text-center duration-300',
                           'md:p-0 hover:text-purple-500 active:text-purple-400',
                         ])}
-                        onClick={() => isOpen && toogle()}
+                        onClick={() => isOpen && toggle()}
                     >
                       {section.name}
                     </a>
@@ -68,7 +68,7 @@ const MainNavbar = () => {
                   isOpen && 'text-purple-500',
                   'p-2 text-xl rounded-full duration-300 block md:hidden',
                 ])}
-                onClick={() => toogle()}
+                onClick={() => toggle()}
             >
               {
                 isOpen ? <IoMdClose/> : <IoMdMenu/>
