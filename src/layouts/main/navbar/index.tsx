@@ -1,4 +1,7 @@
+'use client'
+import { useState } from 'react'
 import clsx from 'clsx'
+import { IoMdClose, IoMdMenu } from 'react-icons/io'
 import DarkModeToggleBtn from '@/layouts/main/navbar/DarkModeToggleBtn'
 
 interface Section {
@@ -23,31 +26,54 @@ const sections: Section[] = [
 ]
 
 const MainNavbar = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const toogle = () => setIsOpen(!isOpen)
+
   return (
-      <nav>
-        <div className="container py-4 flex items-center justify-between">
+      <nav className="sticky top-0 left-0 w-full z-50 backdrop-blur-xl bg-neutral-50/70 dark:bg-neutral-900/70">
+        <div className="container py-4 flex items-center gap-8 justify-between">
           <span className="uppercase font-extrabold text-purple-500">
             Portfolio
           </span>
-          <div className="flex items-center gap-8">
-            <ul className="list-none flex items-center gap-8">
-              {
-                sections.map(section => (
-                    <li key={section.name}>
-                      <a
-                          href={section.href}
-                          className={clsx([
-                            'font-semibold text-sm duration-300',
-                            'hover:text-purple-500',
-                          ])}
-                      >
-                        {section.name}
-                      </a>
-                    </li>
-                ))
-              }
-            </ul>
+          <ul
+              className={clsx([
+                isOpen ? 'max-md:block' : 'max-md:hidden',
+                'list-none flex flex-col items-center max-md:backdrop-blur-xl',
+                'md:flex-row md:gap-8',
+                'max-md:absolute max-md:top-full max-md:left-0 max-md:w-full max-md:bg-neutral-50/70 max-md:dark:bg-neutral-900',
+              ])}
+          >
+            {
+              sections.map(section => (
+                  <li key={section.name} className="max-md:w-full flex">
+                    <a
+                        href={section.href}
+                        className={clsx([
+                          'w-full font-semibold text-sm p-4 text-center duration-300',
+                          'md:p-0 hover:text-purple-500 active:text-purple-400',
+                        ])}
+                        onClick={() => isOpen && toogle()}
+                    >
+                      {section.name}
+                    </a>
+                  </li>
+              ))
+            }
+          </ul>
+          <div className="flex items-center gap-2">
             <DarkModeToggleBtn/>
+            <button
+                className={clsx([
+                  isOpen && 'text-purple-500',
+                  'p-2 text-xl rounded-full duration-300 block md:hidden',
+                ])}
+                onClick={() => toogle()}
+            >
+              {
+                isOpen ? <IoMdClose/> : <IoMdMenu/>
+              }
+            </button>
           </div>
         </div>
       </nav>
