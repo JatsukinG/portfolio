@@ -67,6 +67,7 @@ const MainBanner = () => {
                 src="/images/julian.png"
                 width={400}
                 height={400}
+                className="animate-floating"
             />
           </div>
         </div>
