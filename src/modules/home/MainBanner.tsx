@@ -27,9 +27,8 @@ const socials: Social[] = [
 
 const MainBanner = () => {
   return (
-      <header className="py-16">
+      <header id="home" className="py-16">
         <div className="container grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-          {/* Text Section */}
           <div className="text-center md:text-left">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight text-gray-800 dark:text-white">
               <span className="text-base font-semibold text-purple-500 block">
@@ -60,14 +59,14 @@ const MainBanner = () => {
             </div>
           </div>
 
-          {/* Image Section */}
-          <div className="flex justify-center md:justify-end">
+          <div className="relative flex justify-center md:justify-end">
+            <div className="absolute aspect-square h-full rounded-full bg-purple-500 blur-3xl opacity-20"/>
             <Image
                 alt="Julian Trujillo"
                 src="/images/julian.png"
                 width={400}
                 height={400}
-                className="animate-floating"
+                className="relative animate-floating"
             />
           </div>
         </div>

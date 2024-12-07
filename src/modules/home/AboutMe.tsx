@@ -10,20 +10,17 @@ const items: Item[] = [
   {
     year: 2024,
     title: 'Desarrollador Freelance',
-    description:
-        'Como desarrollador freelance, he trabajado en la creación de sitios web y aplicaciones personalizadas para pequeñas empresas. Mi experiencia incluye el uso de tecnologías como React, Next.js para frontend, y Django para backend, siempre priorizando soluciones adaptadas a las necesidades de mis clientes.',
+    description: 'Como desarrollador freelance, he trabajado en la creación de sitios web y aplicaciones personalizadas para pequeñas empresas. Mi experiencia incluye el uso de tecnologías como React, Next.js para frontend, y Django para backend, siempre priorizando soluciones adaptadas a las necesidades de mis clientes.',
   },
   {
     year: 2021,
     title: 'Inicio en Desarrollo Web',
-    description:
-        'En este año descubrí mi pasión por el desarrollo web. Aprendí a programar y realicé mis primeros proyectos personales utilizando tecnologías como HTML, CSS y JavaScript, sentando las bases para mi carrera en tecnología.',
+    description: 'En este año descubrí mi pasión por el desarrollo web. Aprendí a programar y realicé mis primeros proyectos personales utilizando tecnologías como HTML, CSS y JavaScript, sentando las bases para mi carrera en tecnología.',
   },
   {
     year: 2018,
     title: 'Inicios Académicos',
-    description:
-        'Durante mi formación en Ingeniería Mecatrónica, desarrollé habilidades en programación utilizando lenguajes como C y Python. Además, exploré la creación de scripts para Arduino, lo que despertó mi interés por la resolución de problemas a través del código.',
+    description: 'Durante mi formación en Ingeniería Mecatrónica, desarrollé habilidades en programación utilizando lenguajes como C y Python. Además, exploré la creación de scripts para Arduino, lo que despertó mi interés por la resolución de problemas a través del código.',
   },
 ]
 
