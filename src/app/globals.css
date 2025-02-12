@@ -20,6 +20,11 @@
         overflow-x: hidden;
         @apply bg-neutral-50 text-neutral-600 font-roboto dark:bg-neutral-900 dark:text-neutral-100
     }
+
+    body.no-scroll {
+        max-height: 100vh !important;
+        overflow: hidden !important;
+    }
 }
 
 

@@ -1,7 +1,7 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import clsx from 'clsx'
-import { IoMdClose, IoMdMenu } from 'react-icons/io'
+import BurgerButton from '@/layouts/main/navbar/BurgerButton'
 import DarkModeToggleBtn from '@/layouts/main/navbar/DarkModeToggleBtn'
 
 interface Section {
@@ -30,53 +30,87 @@ const MainNavbar = () => {
 
   const toggle = () => setIsOpen(!isOpen)
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('no-scroll')
+    } else {
+      document.body.classList.remove('no-scroll')
+    }
+
+    return () => {
+      document.body.classList.remove('no-scroll')
+    }
+  }, [isOpen])
+
   return (
-      <nav className="sticky top-0 left-0 w-full z-50 backdrop-blur-xl bg-neutral-50/70 dark:bg-neutral-900/70">
-        <div className="container py-4 flex items-center gap-8 justify-between">
-          <span className="uppercase font-extrabold text-purple-500">
-            Portfolio
-          </span>
-          <ul
-              className={clsx([
-                isOpen ? 'max-md:block' : 'max-md:hidden',
-                'list-none flex flex-col items-center max-md:backdrop-blur-xl',
-                'md:flex-row md:gap-8',
-                'max-md:absolute max-md:top-full max-md:left-0 max-md:w-full max-md:bg-neutral-50/70 max-md:dark:bg-neutral-900',
-              ])}
-          >
-            {
-              sections.map(section => (
-                  <li key={section.name} className="max-md:w-full flex">
+      <>
+        <header
+            className={clsx([
+              isOpen && 'max-md:bg-transparent',
+              'bg-neutral-50/70 dark:bg-neutral-900/70',
+              'z-50 sticky top-0 left-0 w-full backdrop-blur-xl',
+            ])}
+        >
+          <div className="container py-4 flex items-center gap-8 justify-between">
+            <span className="uppercase font-extrabold text-purple-500">
+              Portfolio
+            </span>
+
+            {/*Desktop version*/}
+            <nav className="max-md:hidden flex flex-row gap-8 items-center">
+              {
+                sections.map(section => (
                     <a
+                        key={section.name}
                         href={section.href}
-                        className={clsx([
-                          'w-full font-semibold text-sm p-4 text-center duration-300',
-                          'md:p-0 hover:text-purple-500 active:text-purple-400',
-                        ])}
                         onClick={() => isOpen && toggle()}
+                        className={clsx([
+                          'font-semibold text-sm text-center duration-300',
+                          'hover:text-purple-500 active:text-purple-400',
+                        ])}
                     >
                       {section.name}
                     </a>
-                  </li>
-              ))
-            }
-          </ul>
-          <div className="flex items-center gap-2">
-            <DarkModeToggleBtn/>
-            <button
-                className={clsx([
-                  isOpen && 'text-purple-500',
-                  'p-2 text-xl rounded-full duration-300 block md:hidden',
-                ])}
-                onClick={() => toggle()}
-            >
-              {
-                isOpen ? <IoMdClose/> : <IoMdMenu/>
+                ))
               }
-            </button>
+            </nav>
+
+            <div className="flex items-center gap-2">
+              <DarkModeToggleBtn/>
+              <BurgerButton
+                  isActive={isOpen}
+                  className="md:hidden"
+                  onClick={() => toggle()}
+              />
+            </div>
           </div>
-        </div>
-      </nav>
+        </header>
+
+        {/*Mobile version*/}
+        <nav
+            className={clsx([
+              !isOpen ? '[clip-path:circle(0%_at_100%_0)]' : '[clip-path:circle(100%)]',
+              'md:hidden flex flex-col justify-center items-center transition-all duration-500',
+              'z-40 fixed inset-0 backdrop-blur-xl bg-purple-50/70 dark:bg-neutral-900/70',
+            ])}
+        >
+          {
+            sections.map(section => (
+                <a
+                    key={section.name}
+                    href={section.href}
+                    className={clsx([
+                      'relative w-full font-semibold text-xl p-4 text-center duration-300',
+                      'hover:text-purple-500 active:text-purple-400',
+                    ])}
+                    onClick={() => isOpen && toggle()}
+                >
+                  {section.name}
+                </a>
+            ))
+          }
+        </nav>
+      </>
   )
 }
 

@@ -62,6 +62,7 @@ const MainBanner = () => {
           <div className="relative flex justify-center md:justify-end">
             <div className="absolute aspect-square h-full rounded-full bg-purple-500 blur-3xl opacity-20"/>
             <Image
+                priority
                 alt="Julian Trujillo"
                 src="/images/julian.png"
                 width={400}
