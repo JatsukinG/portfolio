@@ -34,13 +34,15 @@ const MainBanner = () => {
               <span className="text-base font-semibold text-purple-500 block">
                 +3 Years Experience
               </span>
-              Hi, I&#39;m{' '}&nbsp;
-              <span className="relative">
-                <span className="absolute text-nowrap text-purple-500">
-                  Julian Trujillo
-                </span>
-                <span className="absolute text-nowrap animate-text-path text-red-500">
-                  Julian Trujillo
+              <span className="block">
+                Hi, I&#39;m{' '}&nbsp;
+                <span className="inline relative">
+                  <span className="text-nowrap text-purple-500">
+                    Julian Trujillo
+                  </span>
+                  <span className="absolute left-0 text-nowrap animate-text-path text-red-500">
+                    Julian Trujillo
+                  </span>
                 </span>
               </span>
             </h1>
