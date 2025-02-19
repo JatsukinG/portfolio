@@ -34,10 +34,22 @@ const MainBanner = () => {
               <span className="text-base font-semibold text-purple-500 block">
                 +3 Years Experience
               </span>
-              Hi, I&#39;m{' '}
-              <span className="text-purple-500">Julian Trujillo</span>
+              Hi, I&#39;m{' '}&nbsp;
+              <span className="relative">
+                <span className="absolute text-nowrap text-purple-500">
+                  Julian Trujillo
+                </span>
+                <span className="absolute text-nowrap animate-text-path text-red-500">
+                  Julian Trujillo
+                </span>
+              </span>
             </h1>
             <p className="mt-4 text-xl font-bold text-red-500">Web Developer</p>
+            <p className="mt-4 text-base md:text-lg text-pretty">
+              Apasionado por diseñar y construir soluciones tecnológicas modernas y efectivas. Mi trayectoria
+              profesional está marcada por un aprendizaje constante y un compromiso con la excelencia tanto en
+              desarrollo frontend como backend.
+            </p>
 
             {/* Social Buttons */}
             <div className="mt-6 flex justify-center md:justify-start space-x-2">
