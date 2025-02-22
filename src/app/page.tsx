@@ -6,11 +6,11 @@ import Experience from '@/modules/home/Experience'
 
 export default function Home() {
   return (
-      <>
+      <main className="pt-[60px]">
         <MainBanner/>
         <Skills/>
         <Experience/>
         <Projects/>
-      </>
+      </main>
   )
 }

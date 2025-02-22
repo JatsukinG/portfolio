@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import BurgerButton from '@/layouts/main/navbar/BurgerButton'
 import DarkModeToggleBtn from '@/layouts/main/navbar/DarkModeToggleBtn'
+import LanguageBtn from '@/layouts/main/navbar/LanguageBtn'
 
 interface Section {
   name: string
@@ -48,10 +49,10 @@ const MainNavbar = () => {
             className={clsx([
               isOpen && 'max-md:bg-transparent',
               'bg-neutral-50/70 dark:bg-neutral-900/70',
-              'z-50 sticky top-0 left-0 w-full backdrop-blur-xl',
+              'z-50 fixed top-0 inset-x-0 h-[60px] backdrop-blur-xl',
             ])}
         >
-          <div className="container py-4 flex items-center gap-8 justify-between">
+          <div className="h-full container flex items-center gap-8 justify-between">
             <span className="uppercase font-extrabold text-purple-500">
               Portfolio
             </span>
@@ -75,7 +76,8 @@ const MainNavbar = () => {
               }
             </nav>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
+              <LanguageBtn/>
               <DarkModeToggleBtn/>
               <BurgerButton
                   isActive={isOpen}
@@ -88,6 +90,7 @@ const MainNavbar = () => {
 
         {/*Mobile version*/}
         <nav
+            onClick={() => isOpen && toggle()}
             className={clsx([
               !isOpen ? '[clip-path:circle(0%_at_100%_0)]' : '[clip-path:circle(100%)]',
               'md:hidden flex flex-col justify-center items-center transition-all duration-500',
@@ -103,7 +106,6 @@ const MainNavbar = () => {
                       'relative w-full font-semibold text-xl p-4 text-center duration-300',
                       'hover:text-purple-500 active:text-purple-400',
                     ])}
-                    onClick={() => isOpen && toggle()}
                 >
                   {section.name}
                 </a>
