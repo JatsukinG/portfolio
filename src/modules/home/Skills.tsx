@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { FaCss3Alt, FaGitAlt, FaHtml5, FaJs, FaPython, FaReact } from 'react-icons/fa'
 import { SiAstro, SiDjango, SiGraphql, SiNextdotjs, SiTailwindcss, SiTypescript } from 'react-icons/si'
 
@@ -30,15 +29,12 @@ const Skills = () => {
               skills.map((skill, index) => {
                 const Icon = skill.icon
                 return (
-                    <div
-                        key={index}
-                        className={clsx([
-                          'flex flex-col items-center justify-center bg-white shadow-lg rounded-lg p-4',
-                          'dark:bg-neutral-700 hover:scale-105 duration-300',
-                        ])}
-                    >
-                      <Icon className="text-4xl text-purple-500 mb-2"/>
-                      <p className="text-neutral-800 dark:text-neutral-200 font-semibold">{skill.name}</p>
+                    <div key={index} className="relative">
+                      <div className="absolute -inset-4 bg-neutral-200 dark:bg-neutral-800 brush-stroke-mask"></div>
+                      <div className="relative flex flex-col items-center p-4 hover:scale-105 duration-300">
+                        <Icon className="text-4xl text-purple-500 mb-2"/>
+                        <p className="text-neutral-800 dark:text-neutral-200 font-semibold">{skill.name}</p>
+                      </div>
                     </div>
                 )
               })
