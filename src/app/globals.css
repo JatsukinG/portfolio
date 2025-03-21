@@ -30,6 +30,7 @@
         mask-image: url("/images/brush-stroke.png");
         -webkit-mask-image: url("/images/brush-stroke.png");
         mask-size: contain;
+        mask-repeat: no-repeat;
     }
 
     @keyframes bg-animated {
