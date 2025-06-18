@@ -1,0 +1,11 @@
+{
+  "homepage": {
+    "experience": "+3 Años de experiencia",
+    "greeting": "Hola, Soy",
+    "profession": "Desarrolador web",
+    "description": "Soy un desarrollador apasionado por diseñar y construir soluciones tecnológicas modernas, efectivas y centradas en el usuario. Mi trayectoria profesional refleja un aprendizaje continuo y un fuerte compromiso con la excelencia, tanto en frontend como en backend."
+  },
+  "skills": {
+    "title": "Habilidades"
+  }
+}

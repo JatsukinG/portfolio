@@ -1,7 +1,9 @@
 import type { IconType } from 'react-icons'
+import type { UseTranslationArg } from '@/constants/types'
 import Image from 'next/image'
-import { FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 import clsx from 'clsx'
+import { useTranslations } from 'next-intl'
+import { FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 
 interface Social {
   icon: IconType
@@ -26,16 +28,17 @@ const socials: Social[] = [
 
 
 const MainBanner = () => {
+  const t = useTranslations('homepage' as UseTranslationArg)
   return (
       <header id="home" className="py-16">
         <div className="container grid grid-cols-1 md:grid-cols-2 items-center gap-8">
           <div className="text-center md:text-left">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight text-gray-800 dark:text-white">
               <span className="text-base font-semibold text-purple-500 block">
-                +3 Years Experience
+                {t('experience')}
               </span>
-              <span className="block">
-                Hi, I&#39;m{' '}&nbsp;
+              <span className="mt-1 block">
+                {t('greeting')}&nbsp;
                 <span className="inline relative">
                   <span className="text-nowrap text-purple-500">
                     Julian Trujillo
@@ -46,11 +49,9 @@ const MainBanner = () => {
                 </span>
               </span>
             </h1>
-            <p className="mt-4 text-xl font-bold text-red-500">Web Developer</p>
+            <p className="mt-4 text-xl font-bold text-red-500">{t('profession')}</p>
             <p className="mt-4 text-base md:text-lg text-pretty">
-              Apasionado por diseñar y construir soluciones tecnológicas modernas y efectivas. Mi trayectoria
-              profesional está marcada por un aprendizaje constante y un compromiso con la excelencia tanto en
-              desarrollo frontend como backend.
+              {t('description')}
             </p>
 
             {/* Social Buttons */}

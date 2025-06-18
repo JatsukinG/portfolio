@@ -5,6 +5,10 @@ import clsx from 'clsx'
 import './globals.css'
 import MainNavbar from '@/layouts/main/navbar'
 
+import { NextIntlClientProvider, hasLocale } from 'next-intl'
+import { notFound } from 'next/navigation'
+import { routing } from '@/i18n/routing'
+
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',
@@ -21,9 +25,17 @@ export const metadata: Metadata = {
   description: 'Portfolio web by Julian Trujillo',
 }
 
-export default function RootLayout({ children }: Readonly<{ children: ReactNode; }>) {
+export default async function LocaleLayout({ children, params }: {
+  children: ReactNode;
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  if (!hasLocale(routing.locales, locale)) {
+    notFound()
+  }
+
   return (
-      <html lang="en">
+      <html lang={locale}>
       <body
           className={clsx([
             geistSans.variable,
@@ -31,8 +43,10 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode;
             'antialiased',
           ])}
       >
-      <MainNavbar/>
-      {children}
+      <NextIntlClientProvider>
+        <MainNavbar/>
+        {children}
+      </NextIntlClientProvider>
       </body>
       </html>
   )

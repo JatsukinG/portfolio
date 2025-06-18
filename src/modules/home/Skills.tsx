@@ -1,3 +1,5 @@
+import type { UseTranslationArg } from '@/constants/types'
+import { useTranslations } from 'next-intl'
 import { FaCss3Alt, FaGitAlt, FaHtml5, FaJs, FaPython, FaReact } from 'react-icons/fa'
 import { SiAstro, SiDjango, SiGraphql, SiNextdotjs, SiTailwindcss, SiTypescript } from 'react-icons/si'
 
@@ -18,11 +20,12 @@ const skills = [
 
 
 const Skills = () => {
+  const t = useTranslations('skills' as UseTranslationArg)
   return (
       <section id="skills" className="py-16">
         <div className="container">
           <h2 className="mb-12 text-3xl md:text-4xl font-bold text-center text-neutral-800 dark:text-white">
-            Skills
+            {t('title')}
           </h2>
           <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-8">
             {
