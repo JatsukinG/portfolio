@@ -8,6 +8,7 @@ import MainNavbar from '@/layouts/main/navbar'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
+import AnimatedBackground from '@/components/misc/AnimatedBackground'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -46,6 +47,7 @@ export default async function LocaleLayout({ children, params }: {
       <NextIntlClientProvider>
         <MainNavbar/>
         {children}
+        <AnimatedBackground/>
       </NextIntlClientProvider>
       </body>
       </html>

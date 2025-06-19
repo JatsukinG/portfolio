@@ -32,8 +32,8 @@ const Skills = () => {
               skills.map((skill, index) => {
                 const Icon = skill.icon
                 return (
-                    <div key={index} className="relative">
-                      <div className="absolute -inset-4 bg-neutral-200 dark:bg-neutral-800 brush-stroke-mask"></div>
+                    <div key={index} className="relative bg-white/5 backdrop-blur-sm rounded-lg shadow-md">
+                      {/*<div className="absolute -inset-4 bg-neutral-200 dark:bg-neutral-800 brush-stroke-mask"></div>*/}
                       <div className="relative flex flex-col items-center p-4 hover:scale-105 duration-300">
                         <Icon className="text-4xl text-purple-500 mb-2"/>
                         <p className="text-neutral-800 dark:text-neutral-200 font-semibold">{skill.name}</p>
